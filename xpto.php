@@ -3,17 +3,15 @@ $nome = isset($_POST["input1"]) ?  $_POST["input1"] : "";
 $email = isset($_POST["input2"]) ? $_POST["input2"] : "";
 $plano = isset($_POST["input3"]) ? $_POST["input3"] : "";
 
-echo $nome." ".$email." ".$plano;
-
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "academia";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+// Criar conexão
+$conn = new mysqli($servername, $username, $password);
 
-// Check connection
+// Checar conexão
 $conn->connect_error;
 
 // Create database
@@ -29,18 +27,28 @@ $sql = "CREATE TABLE IF NOT EXISTS solicitacoes (
     )";
     
     $conn->query($sql);
+    $conn->close();
 
-$sql = "INSERT INTO solicitacoes (nome,plano,email)
-VALUES ('$nome', '$plano', '$email')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Solicitação feita com sucesso";
+$conn = new mysqli($servername, $username, $password,$dbname);
+//preparando o bind
+$stmt= $conn->prepare("INSERT INTO solicitacoes (nome,plano,email) VALUES (?,?,?)");
+$stmt->bind_param("sss",$rnome, $rplano, $remail);
+
+//Setar Parametros e executar
+$rnome = $nome;
+$rplano= $plano;
+$remail = $email;
+
+if ($stmt->execute() === TRUE) {
+    //echo "Solicitação feita com sucesso";
+    echo"<script>alert('Solicitação feita com sucesso')</script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo"<script>alert('Error: ' . $sql . '<br>' . $conn->error)</script>";
+    //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
-
 
 /* $para="psidom@gmail.com";
 $titulo= "Plano para Academia";
