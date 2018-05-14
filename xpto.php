@@ -6,7 +6,7 @@ $plano = isset($_POST["input3"]) ? $_POST["input3"] : "";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "academia";
+$dbname = "academia"; 
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password);
