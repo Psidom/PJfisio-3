@@ -1,0 +1,213 @@
+    .Cadastro {
+        display: inline-block;
+        color: #fff;
+        font-size: 18px;
+        background-color: #ff6666;
+        border-radius: 25px;
+        text-align: center;
+        padding: 5px;
+    }
+    
+    .Cadastro:hover {
+        background-color: #ff3333;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .forcad {
+        display: flex;
+        width: 40%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .forcadctrl {
+        display: flex;
+        width: auto;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .cidade {
+        width: auto;
+    }
+    
+    div.senha {
+        padding-top: 10px;
+    }
+    
+    .senha {
+        width: auto;
+    }
+    
+    .divformulario {
+        width: 500px;
+        height: 100%;
+        min-height: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+    
+    .setor {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    
+    .fieldform {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 2px solid #555;
+        border-radius: 10px;
+    }
+    
+    .fieldform2 {
+        width: 600px;
+        min-width: 0;
+        padding: 20px;
+        margin: 0;
+        border: 2px solid #555;
+        border-radius: 10px;
+    }
+    
+    .fieldform3 {
+        width: auto;
+        min-width: 0;
+        padding: 20px;
+        margin: 0;
+        border: 2px solid #555;
+        border-radius: 10px;
+    }
+    
+    .legend_aux {
+        width: auto;
+        margin-bottom: 1px;
+    }
+    
+    #procedimentos {}
+    
+    .alnprof {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 2px solid #555;
+        border-radius: 10px;
+        padding-left: 10px;
+    }
+    
+    .legend1 {
+        display: block;
+        width: auto;
+        margin-bottom: 1px;
+        font-size: 21px;
+        border-bottom: 0px solid;
+    }
+    
+    .slidecontainer {
+        width: 100%;
+        /* Width of the outside container */
+    }
+    /* The slider itself */
+    
+    .slider {
+        -webkit-appearance: none;
+        /* Override default CSS styles */
+        appearance: none;
+        width: 100%;
+        /* Full-width */
+        height: 25px;
+        /* Specified height */
+        background: #d3d3d3;
+        /* Grey background */
+        outline: none;
+        /* Remove outline */
+        opacity: 0.7;
+        /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s;
+        /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+    /* Mouse-over effects */
+    
+    .slider:hover {
+        opacity: 1;
+        /* Fully shown on mouse-over */
+    }
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        /* Override default look */
+        appearance: none;
+        width: 25px;
+        /* Set a specific slider handle width */
+        height: 25px;
+        /* Slider handle height */
+        background: #4CAF50;
+        /* Green background */
+        cursor: pointer;
+        /* Cursor on hover */
+    }
+    
+    .slider::-moz-range-thumb {
+        width: 25px;
+        /* Set a specific slider handle width */
+        height: 25px;
+        /* Slider handle height */
+        background: #4CAF50;
+        /* Green background */
+        cursor: pointer;
+        /* Cursor on hover */
+    }
+    
+    .minha_tabela {
+        width: auto;
+    }
+.window{
+    display:none;
+    width:400px;
+    height:610px;
+    position:absolute;
+    left:0;
+    top:0;
+    background:#FFF;
+    z-index:9900;
+    padding:10px;
+    border-radius:10px;
+}
+ 
+#mascara{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+}
+ 
+.fechar{display:block; text-align:right;}
