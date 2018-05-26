@@ -1,5 +1,5 @@
 <?php
-require 'conexao.php';
+require 'require/Conexao.php';
 
 $nome = isset($_POST["input1"]) ?  $_POST["input1"] : "";
 $email = isset($_POST["input2"]) ? $_POST["input2"] : "";
@@ -12,7 +12,7 @@ $email = filter_var($email,FILTER_SANITIZE_EMAIL);
 /* @var $filter_var type */
 $plano = filter_var($plano,FILTER_SANITIZE_STRING);
 
-inserir($nome,$email,$plano);
+inserir($nome,$email,$plano,$servername,$username,$password,$dbname);
 
 /* $para="psidom@gmail.com";
 $titulo= "Plano para Academia";
