@@ -13,7 +13,6 @@ $email = filter_var($email,FILTER_SANITIZE_EMAIL);
 $plano = filter_var($plano,FILTER_SANITIZE_STRING);
 
 inserir($nome,$email,$plano,$servername,$username,$password,$dbname);
-
 /* $para="psidom@gmail.com";
 $titulo= "Plano para Academia";
 

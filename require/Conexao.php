@@ -1,4 +1,5 @@
 <?php
+//header("Content-Type: text/html; charset=UTF-8",true);
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -39,14 +40,15 @@ $sql = "CREATE TABLE IF NOT EXISTS solicitacoes(
         $rnome = $nome;
         $rplano= $plano;
         $remail = $email;
-
+                
         if ($stmt->execute() === TRUE) {
             //echo "Solicitação feita com sucesso";
             echo"<script>alert('Solicitação feita com sucesso')</script>";
+            echo "<script> window.location.replace('../Academia')</script>";
         } else {
             echo"<script>alert('Error: ' . $sql . '<br>' . $conn->error)</script>";
+            echo "<script> window.location.replace('../Academia')</script>";
             //echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-        $conn->close();
+        $conn->close();  
     }
