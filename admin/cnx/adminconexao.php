@@ -44,14 +44,16 @@ function pegar_dados($servername,$username,$password,$dbname){
    
    $sql = "SELECT * FROM solicitacoes";
    $result = $conn->query($sql);
-   if ($result->num_rows > 0) {
-    echo "<table width='100%' class='table table-striped table-bordered table-hover' id='tabela-dados'><tr>"
-       . "<thead>"
-       . "<th>Nome</th>"
-       . "<th>E-mail</th>"
-       . "<th>Plano</th>"
-       . "<th>Editar</th>"
-       . "<th>Deletar</th></tr>"
+   if ($result->num_rows > 0) {?>
+       <table id="tabela" width="100%" class="table table-striped table-bordered table-hover">
+    <?php
+    echo "<thead>"
+       . "<tr>"
+       . "<td>Nome</td>"
+       . "<td>E-mail</td>"
+       . "<td>Plano</td>"
+       . "<td>Editar</td>"
+       . "<td>Deletar</td></tr>"
        . "</thead><tbody>";
     // saida de dados a cada row encontrado
     while($row = $result->fetch_assoc()) {

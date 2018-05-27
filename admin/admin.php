@@ -1,7 +1,7 @@
 <?php
 
 require './secao/secao.php';
-header("Content-Type: text/html; charset=utf-8",true);
+//header("Content-Type: text/html; charset=utf-8",true);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,8 +33,13 @@ header("Content-Type: text/html; charset=utf-8",true);
     <!-- DataTables CSS -->
     <link href="../admin/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
-    <!-- DataTables Responsive CSS -->
+    <!--DataTables Responsive CSS -->
     <link href="../admin/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="dist/css/datatables/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/datatables/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/datatables/buttons.dataTables.min.css">  
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -489,7 +494,8 @@ header("Content-Type: text/html; charset=utf-8",true);
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../admin/vendor/jquery/jquery.min.js"></script>
+    <script src="../admin/vendor/jquery/jquery.min.js"></script> 
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../admin/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -500,22 +506,76 @@ header("Content-Type: text/html; charset=utf-8",true);
     <!-- Custom Theme JavaScript -->
     <script src="../admin/dist/js/sb-admin-2.js"></script>
 
-    <!-- DataTables JavaScript -->
+    <!-- DataTables JavaScript 
     <script src="../admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
+    
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/buttons.colVis.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/buttons.flash.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/pdfmake.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/vfs_fonts.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../admin/js/datatable/buttons.print.min.js"></script>
+        
     <!-- Custom Theme JavaScript -->
     <script src="../admin/dist/js/sb-admin-2.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function() {
-            $('#tabela-dados').DataTable({
-                responsive: true
-            });
-        });
-        
+<script>
+var table = $('#tabela').DataTable({
+      "scrollX": true,
+      "oLanguage": {
+                      buttons: {
+                        colvis: 'Mostrar/Esconder Colunas',
+                        print: 'Imprimir',
+                        pageLength: 'Mostrar Registros'
+                      },
+                    "sProcessing":   "Processando...",
+                    "sLengthMenu":   "Mostrar _MENU_ registros",
+                    "sZeroRecords":  "Não foram encontrados resultados",
+                    "sInfo":         "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
+                    "sInfoFiltered": "",
+                    "sInfoPostFix":  "",
+                    "sSearch":       "Buscar:",
+                    "sUrl":          "",
+                    "oPaginate": {
+                        "sFirst":    "Primeiro",
+                        "sPrevious": "Anterior",
+                        "sNext":     "Seguinte",
+                        "sLast":     "Último"
+                    }
+                },
+                dom: 'Bfrtip',
+        lengthMenu: [
+            [ 10, 25, 50, -1 ],
+            [ '10 Registros', '25 Registros', '50 Registros', 'Mostrar Todos' ]
+        ],
+
+        buttons: [
+            {
+                extend: 'collection',
+                text: 'Controle de Tabela',
+                buttons: [
+                    {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                exportOptions:{
+                  modifier:{
+                    page: 'current'
+                  }
+                }
+            },'excel', 'print','colvis','pageLength',
+                ]
+            }
+        ]
+    });
      function modalEditar (v1,v2,v3,v4) {
         document.getElementById('eidnome').value = v1;
         document.getElementById('eidemail').value = v2;
@@ -528,7 +588,7 @@ header("Content-Type: text/html; charset=utf-8",true);
      document.getElementById('didplano').value = va3;
      document.getElementById('did').value = va4;
     }
-    </script>
+</script>
 
 
 </body>
