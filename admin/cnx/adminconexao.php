@@ -103,7 +103,7 @@ function checar_login($user,$pass,$servername,$username,$password,$dbadmin){
           session_start();
           $_SESSION['logged_in'] = true;
           $_SESSION['user_name'] = $user;
-          print_r($_SESSION);
+          //print_r($_SESSION);
           //header('Location: /Academia/admin/admin.php');
           echo"<script language='javascript' type='text/javascript'>alert(' $user foi logado Com Sucesso');window.location.href='/Academia/admin/admin.php';</script>";
           exit;

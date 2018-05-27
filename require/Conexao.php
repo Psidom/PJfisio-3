@@ -32,6 +32,8 @@ $sql = "CREATE TABLE IF NOT EXISTS solicitacoes(
     function inserir($nome, $email, $plano, $servername, $username, $password,$dbname){
 
         $conn = new mysqli($servername,$username,$password,$dbname);
+        //corrigindo os problemas de acento
+        mysqli_set_charset($conn, "utf8");
         //preparando o bind
         $stmt= $conn->prepare("INSERT INTO solicitacoes (nome,plano,email) VALUES (?,?,?)");
         $stmt->bind_param("sss",$rnome,$rplano,$remail);
