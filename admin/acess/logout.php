@@ -8,5 +8,5 @@ $_SESSION['logged_in'] = false;
 // finaliza a sessão
 session_destroy();
  
-// retorna para a index.php
+// retorna para a login.html
 header('Location: /Academia/admin/acess/login.html');

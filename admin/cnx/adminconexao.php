@@ -1,4 +1,7 @@
 <?php
+if(!isLoggedIn()){
+    session_start();
+}
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -31,6 +34,10 @@ $sql= "INSERT INTO usuarios (nome, senha) VALUES ('dono','89794b621a313bb59eed0d
     
 $conn->query($sql);
 $conn->close();
+
+
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
 function pegar_dados($servername,$username,$password,$dbname){
    $conn = new mysqli($servername,$username,$password,$dbname); 
@@ -73,8 +80,7 @@ function pegar_dados($servername,$username,$password,$dbname){
 }
 $conn->close();
 }
-function isLoggedIn()
-{
+function isLoggedIn(){
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true)
     {
         return false;
@@ -90,11 +96,10 @@ function checar_login($user,$pass,$servername,$username,$password,$dbadmin){
    if ($result->num_rows <= 0){
           echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
           die();
-          session_destroy;
           exit;
         }else{
           session_save_path(__DIR__.'\..\secao\arquivos');
-          session_set_cookie_params(60*60,'/admin/*',null,false,true);
+          session_set_cookie_params(60,'/admin/*',null,false,true);
           session_start();
           $_SESSION['logged_in'] = true;
           $_SESSION['user_name'] = $user;

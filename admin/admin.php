@@ -1,4 +1,5 @@
 <?php
+
 require './secao/secao.php';
 header("Content-Type: text/html; charset=utf-8",true);
 ?>
@@ -55,9 +56,10 @@ header("Content-Type: text/html; charset=utf-8",true);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="admin.php">Pagina do Administrador</a>
             </div>
-            <!-- /.navbar-header -->
+            <!--
+            <!-- /.navbar-header 
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
@@ -108,9 +110,9 @@ header("Content-Type: text/html; charset=utf-8",true);
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-messages -->
+                    <!-- /.dropdown-messages
                 </li>
-                <!-- /.dropdown -->
+                <!-- /.dropdown 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -187,9 +189,9 @@ header("Content-Type: text/html; charset=utf-8",true);
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-tasks -->
+                    <!-- /.dropdown-tasks
                 </li>
-                <!-- /.dropdown -->
+                <!-- /.dropdown 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -247,9 +249,9 @@ header("Content-Type: text/html; charset=utf-8",true);
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-alerts -->
+                    <!-- /.dropdown-alerts 
                 </li>
-                <!-- /.dropdown -->
+                <!-- /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -263,16 +265,16 @@ header("Content-Type: text/html; charset=utf-8",true);
                         <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    <!-- /.dropdown-user
                 </li>
-                <!-- /.dropdown -->
+                <!-- /.dropdown 
             </ul>
-            <!-- /.navbar-top-links -->
-
+            <!-- /.navbar-top-links 
+                                    -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <!-- <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -281,12 +283,15 @@ header("Content-Type: text/html; charset=utf-8",true);
                                     </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
+                        </li>
+                        <!-- /input-group -->
+                        <li>
+                            <a href="admin.php"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="../admin/acess/logout.php"><i class="fa fa-sign-out fa-fw"></i>Sair</a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -295,10 +300,10 @@ header("Content-Type: text/html; charset=utf-8",true);
                                 <li>
                                     <a href="morris.html">Morris.js Charts</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            </ul>                            
                         </li>
-                        <li>
+                        <!-- /.nav-second-level -->
+                        <!--<li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
@@ -325,10 +330,10 @@ header("Content-Type: text/html; charset=utf-8",true);
                                 <li>
                                     <a href="grid.html">Grid</a>
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            </ul>                           
                         </li>
-                        <li>
+                         <!-- /.nav-second-level -->
+                        <!--<li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -352,24 +357,24 @@ header("Content-Type: text/html; charset=utf-8",true);
                                         <li>
                                             <a href="#">Third Level Item</a>
                                         </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
+                                    </ul>                                    
                                 </li>
+                        <!-- /.nav-third-level -->
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="active">
+                       <!-- <li class="active">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a class="active" href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="login.html">Sair Page</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
+                    <!-- /.nav-second-level -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

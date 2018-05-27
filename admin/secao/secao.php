@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once './cnx/adminconexao.php';
+require './cnx/adminconexao.php';
 if(!isloggedIn()){
     echo"<script language='javascript' type='text/javascript'>alert('Tentativa de Acesso Não Permitido');window.location.href='/Academia/admin/acess/login.html';</script>";
     exit;
