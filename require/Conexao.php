@@ -21,7 +21,7 @@ $conn->query($sql);
 // sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS solicitacoes(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    nome VARCHAR(30) NOT NULL,
+    nome VARCHAR(90) NOT NULL,
     plano VARCHAR(300) NOT NULL,
     email VARCHAR(50)
     )DEFAULT CHARSET=utf8";

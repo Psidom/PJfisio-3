@@ -35,24 +35,39 @@ $conn->close();
 function pegar_dados($servername,$username,$password,$dbname){
    $conn = new mysqli($servername,$username,$password,$dbname); 
    
-   $sql = "SELECT  nome, plano, email FROM solicitacoes";
+   $sql = "SELECT * FROM solicitacoes";
    $result = $conn->query($sql);
    if ($result->num_rows > 0) {
-    echo "<table><tr>"
+    echo "<table width='100%' class='table table-striped table-bordered table-hover' id='tabela-dados'><tr>"
+       . "<thead>"
        . "<th>Nome</th>"
        . "<th>E-mail</th>"
-       . "<th>Plano</th></tr>";
-    // output data of each row
+       . "<th>Plano</th>"
+       . "<th>Editar</th>"
+       . "<th>Deletar</th></tr>"
+       . "</thead><tbody>";
+    // saida de dados a cada row encontrado
     while($row = $result->fetch_assoc()) {
+        $i = 1;
+        $auxid[$i] = utf8_encode($row["id"]);
+        $auxnome[$i] = utf8_encode($row["nome"]);
+        $auxemail[$i] = utf8_encode($row["email"]);
+        $auxplano[$i] = utf8_encode($row["plano"]);
         echo "<tr><td>"
-        .$row["nome"]
+        .utf8_encode($row["nome"])
         ."</td><td>"
-        .$row["email"]
+        .utf8_encode($row["email"])
         ."</td><td>"
-        .$row["plano"]
-        ."</td></tr>";
+        .utf8_encode($row["plano"])
+        ."</td>";
+        ?>
+        <td><button onclick="modalEditar('<?php echo $auxnome[$i] ?>','<?php echo $auxemail[$i]?>','<?php echo $auxplano[$i]?>','<?php echo $auxid[$i]?>')" class="btn btn-warning" data-toggle="modal" data-target="#editor" > <i class="fa fa-file-text" > </i> </button></td>
+        <td><button onclick="modalDeletar('<?php echo $auxnome[$i]?>','<?php echo $auxemail[$i]?>','<?php echo $auxplano[$i]?>','<?php echo $auxid[$i]?>')" class="btn btn-danger" data-toggle="modal" data-target="#deletar"  > <i class= "fa fa-trash"> </i> </button></td>
+        </tr>
+        <?php
+        $i++;
     }
-    echo "</table>";
+    echo "</tbody></table>";
 } else {
     echo "Sem Solicitações";
 }
@@ -91,4 +106,35 @@ function checar_login($user,$pass,$servername,$username,$password,$dbadmin){
    
    $conn->close(); 
 }
+function editar($id,$nome,$plano,$email,$servername,$username,$password,$dbname){
+    $conn = new mysqli($servername,$username,$password,$dbname);
+    mysqli_set_charset($conn, "utf8");
+    $sql = "UPDATE solicitacoes SET nome = '$nome', plano = '$plano', email = '$email' WHERE id = '$id'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo"<script language='javascript' type='text/javascript'>alert('Atualizado Com Sucesso');window.location.href='/Academia/admin/admin.php';</script>";
+    } else {
+        echo"<script language='javascript' type='text/javascript'>alert(' Não Foi Possivel Atualizar Erro: $conn->error');window.location.href='/Academia/admin/admin.php';</script>";
+    }
+
+    $conn->close(); 
+}
+
+function deletar($id,$servername,$username,$password,$dbname){
+    $conn = new mysqli($servername,$username,$password,$dbname);
+    
+    $sql = "DELETE FROM solicitacoes WHERE id = '$id'";
+
+    if ($conn->query($sql) === TRUE) {
+        echo"<script language='javascript' type='text/javascript'>alert(' ID: $id Deletado Com Sucesso');window.location.href='/Academia/admin/admin.php';</script>";
+    } else {
+        echo"<script language='javascript' type='text/javascript'>alert(' Não Foi Possivel Deletar Erro: $conn->error');window.location.href='/Academia/admin/admin.php';</script>";
+    }
+
+    $conn->close(); 
+
+}
+
+
+?>
 
