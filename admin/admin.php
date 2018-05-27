@@ -15,7 +15,9 @@ header("Content-Type: text/html; charset=utf-8",true);
     <meta name="author" content="Cristian Tinôco Tosta dos Reis">
 
     <title>Pagina do Administrador</title>
-
+    <!-- ADMIN LTE CORE -->
+    <link href="../admin/dist/css/adminLTE.css" rel="stylesheet">
+    
     <!-- Bootstrap Core CSS -->
     <link href="../admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -426,8 +428,8 @@ header("Content-Type: text/html; charset=utf-8",true);
                                 </div>
 
                                 <div class="modal-footer">
-                                  <button type="submit" class="btn btn-outline pull-left">Salvar</button>
-                                  <button type="button" class="btn btn-outline" data-dismiss="modal">Cancelar</button>
+                                  <button type="submit" class="btn  btn-outline pull-left">Salvar</button>
+                                  <button type="button" class="btn  btn-outline" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </form>
 
@@ -465,7 +467,7 @@ header("Content-Type: text/html; charset=utf-8",true);
                           
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-outline" data-dismiss="modal">Cancelar</button>
+                          <button type="button" class="btn  btn-outline" data-dismiss="modal">Cancelar</button>
                           <button type="submit" class="btn btn-outline pull-left">Confirmar</button>                    
                         </div>
                       </form>
